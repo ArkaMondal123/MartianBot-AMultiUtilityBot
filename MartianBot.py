@@ -188,7 +188,7 @@ async def on_ready():
     await client.change_presence(activity=discord.Activity(type = discord.ActivityType.watching, name= f"{gcount} servers and {mcount} users."))
 
 #mongodb
-cluster = MongoClient('mongodb+srv://Martianbot:martian.bot@clustermartianbot.erq2f.mongodb.net/MartianBot?retryWrites=true&w=majority')
+cluster = MongoClient(f'mongodb+srv://Martianbot:{password}@clustermartianbot.erq2f.mongodb.net/MartianBot?retryWrites=true&w=majority')
 db = cluster['MartianBot']
 collection = db["Settings"]
 collectionb = db["Battle"]
@@ -341,7 +341,7 @@ async def giveaway(ctx):
 #Suggestion Command
 @client.command(aliases = ["s"])
 async def suggestion(ctx ,*,suggestion):
-    cluster1 = MongoClient('mongodb+srv://Martianbot:martian.bot@clustermartianbot.erq2f.mongodb.net/MartianBot?retryWrites=true&w=majority')
+    cluster1 = MongoClient(f'mongodb+srv://Martianbot:{password}@clustermartianbot.erq2f.mongodb.net/MartianBot?retryWrites=true&w=majority')
     db1 = cluster['MartianBot']
     collection1 = db["Suggestions"]
     await ctx.send("Would you like to send us your email address so that we can mail a reply back? y/n")
@@ -407,7 +407,7 @@ async def battle(ctx , *, member : discord.Member):
     if ctx.author.id == member.id :
         await ctx.send("You cannot challenge yourself.")
         return
-    clusterb = MongoClient("mongodb+srv://Martianbot:martian.bot@clustermartianbot.erq2f.mongodb.net/MartianBot?retryWrites=true&w=majority")
+    clusterb = MongoClient(f"mongodb+srv://Martianbot:{password}@clustermartianbot.erq2f.mongodb.net/MartianBot?retryWrites=true&w=majority")
     Database = clusterb["MartianBot"]
     collectionb = Database["Battle"]
     try:

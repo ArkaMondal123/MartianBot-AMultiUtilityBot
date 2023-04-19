@@ -1199,4 +1199,4 @@ async def muterole_error(ctx, error):
 async def autorole_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
         await ctx.send("Syntax : $setautorole @<role>")
-client.run("ODI5MzQ4MzIzODE0NDA4MjMy.YG200A.Q7TOZZ2LWgkFpJltDZy7buGMAQg")
+client.run(f"{token}")
